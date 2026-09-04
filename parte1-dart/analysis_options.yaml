@@ -1,0 +1,7 @@
+include: package:lints/recommended.yaml
+
+# O relatório da Parte 1 é impresso no terminal, então `print` é o meio de
+# saída previsto pelo enunciado e não deve ser sinalizado.
+linter:
+  rules:
+    avoid_print: false

@@ -1,0 +1,10 @@
+name: parte1_dart
+description: Parte 1 do trabalho bimestral — modelagem do domínio em Dart puro.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ^3.13.1
+
+dev_dependencies:
+  lints: ^6.0.0

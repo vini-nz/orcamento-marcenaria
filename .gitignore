@@ -1,0 +1,16 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+*.iml
+.idea/
+.vscode/
+
+# Flutter
+parte2-flutter/.flutter-plugins
+parte2-flutter/.flutter-plugins-dependencies
+parte2-flutter/.metadata
+
+# Sistema
+Thumbs.db
+.DS_Store
