@@ -5,19 +5,26 @@
 
 ## Domínio
 
-<!-- TODO (Vinícius): escreva aqui, com suas palavras, uma frase dizendo quais
-     são as duas entidades e como elas se relacionam. O README do trabalho pede
-     isso explicitamente: "Declarem o tema logo no início do README.md do
-     repositório, com uma frase explicando quais são as entidades e como elas se
-     relacionam." -->
+O sistema representa o orçamento de um projeto de marcenaria.
+
+A entidade individual é a `Peca`: um item que será fabricado, com descrição,
+largura, altura, quantidade, material, preço por metro quadrado e a data em que
+foi medida. Cada peça sabe calcular a própria área e o próprio custo.
+
+A entidade agrupadora é o `Projeto`: um ambiente contratado por um cliente, que
+contém a lista de peças a serem produzidas e informa a área e o custo total do
+conjunto.
+
+`PecaSobMedida` é uma especialização de `Peca`, para itens que fogem da medida
+padrão. Além dos dados de qualquer peça, guarda o acabamento e o prazo de
+produção, e custa mais por exigir trabalho específico.
 
 ### Por que composição e não herança
 
-<!-- TODO (Vinícius): o exercício 3 pede esta justificativa por escrito, em uma
-     ou duas frases. Use o teste das duas frases:
-       "toda peça sob medida é uma peça"  -> fecha, então é herança
-       "todo projeto é uma peça"          -> não fecha, então é composição
-     Escreva do seu jeito. Esta é a resposta que ele pode cobrar oralmente. -->
+Um projeto não é uma peça, ele tem peças: a frase "todo projeto é uma peça" não
+se sustenta. Por isso `Projeto` guarda uma `List<Peca>` como atributo em vez de
+herdar de `Peca`. Já "toda peça sob medida é uma peça" se sustenta, e é por isso
+que `PecaSobMedida` usa `extends`.
 
 ## Como rodar
 
@@ -36,8 +43,6 @@ flutter run
 
 ## Tabela de rastreio
 
-<!-- TODO: preencher arquivo e linha reais conforme os exercícios forem ficando
-     prontos. Sem esta tabela o trabalho não é corrigido. -->
 
 | # | Exercício | Arquivo e linha | O que aparece na tela |
 |---|---|---|---|
@@ -58,5 +63,3 @@ flutter run
 cd parte1-dart   && dart analyze
 cd parte2-flutter && flutter analyze
 ```
-
-Entrega com erro de análise não é corrigida.
