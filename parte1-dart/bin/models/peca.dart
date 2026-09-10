@@ -21,6 +21,11 @@ class Peca {
 
   double get custo => area * precoMetroQuadrado;
 
+  String get dataMedidaFormatada =>
+      '${medidaEm.day.toString().padLeft(2, '0')}/'
+      '${medidaEm.month.toString().padLeft(2, '0')}/'
+      '${medidaEm.year}';
+
   String ficha() =>
       '$descricao, ${largura.toStringAsFixed(2)}x${altura.toStringAsFixed(2)}m, '
       'qtd $quantidade, $material';
