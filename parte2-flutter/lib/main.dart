@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'cores.dart';
 import 'screens/home_page.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MarcenariaApp extends StatelessWidget {
       title: 'Marcenaria — Projetos',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorSchemeSeed: Colors.brown,
+        colorSchemeSeed: marrom,
         scaffoldBackgroundColor: const Color(0xFFFDFBF8),
       ),
       home: const HomePage(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../cores.dart';
 import '../../models/peca.dart';
 import '../../models/peca_sob_medida.dart';
 
@@ -29,12 +30,12 @@ class CartaoPeca extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: Colors.brown.shade100,
+                color: marromClaro,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(
                 sobMedida ? Icons.straighten : Icons.crop_square,
-                color: Colors.brown.shade900,
+                color: marromEscuro,
               ),
             ),
 
@@ -64,7 +65,7 @@ class CartaoPeca extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.brown,
+                color: marrom,
               ),
             ),
           ],
