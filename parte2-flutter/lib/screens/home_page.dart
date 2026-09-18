@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../cores.dart';
 import '../models/peca.dart';
 import '../models/peca_sob_medida.dart';
 import '../models/projeto.dart';
+import 'detalhe_page.dart';
+import 'cadastro_page.dart';
 import 'widgets/cartao_peca.dart';
 
 class HomePage extends StatefulWidget {
@@ -70,11 +73,33 @@ class _HomePageState extends State<HomePage> {
     ],
   );
 
+  void _abrirDetalhe(Peca peca) {
+    final rota = MaterialPageRoute<void>(
+      builder: (context) => DetalhePage(peca: peca),
+    );
+
+    Navigator.of(context).push(rota);
+  }
+
+  Future<void> _adicionarPeca() async {
+    final rota = MaterialPageRoute<Peca>(
+      builder: (context) => const CadastroPage(),
+    );
+
+    final novaPeca = await Navigator.of(context).push<Peca>(rota);
+
+    if (novaPeca != null) {
+      setState(() {
+        _projeto.adicionar(novaPeca);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: marrom,
         foregroundColor: Colors.white,
         titleSpacing: 20,
         title: Column(
@@ -93,8 +118,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        backgroundColor: Colors.brown,
+        onPressed: _adicionarPeca,
+        backgroundColor: marrom,
         foregroundColor: Colors.white,
         icon: const Icon(Icons.add),
         label: const Text('Adicionar Peça'),
@@ -116,7 +141,7 @@ class _HomePageState extends State<HomePage> {
               itemCount: _projeto.totalPecas,
               itemBuilder: (context, indice) {
                 final peca = _projeto.pecas[indice];
-                return CartaoPeca(peca: peca, onTap: () {});
+                return CartaoPeca(peca: peca, onTap: () => _abrirDetalhe(peca));
               },
             ),
           ),
@@ -137,7 +162,7 @@ class _Resumo extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.brown.shade100,
+        color: marromClaro,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Row(
@@ -185,20 +210,17 @@ class _Metrica extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icone, size: 20, color: Colors.brown.shade900),
+        Icon(icone, size: 20, color: marromEscuro),
         Text(
           valor,
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: Colors.brown.shade900,
+            color: marromEscuro,
           ),
         ),
         const SizedBox(height: 2),
-        Text(
-          rotulo,
-          style: TextStyle(fontSize: 12, color: Colors.brown.shade700),
-        ),
+        Text(rotulo, style: TextStyle(fontSize: 12, color: marromMedio)),
       ],
     );
   }
