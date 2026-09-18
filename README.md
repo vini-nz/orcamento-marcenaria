@@ -43,19 +43,18 @@ flutter run
 
 ## Tabela de rastreio
 
-
 | # | Exercício | Arquivo e linha | O que aparece na tela |
 |---|---|---|---|
-| 1 | Entidade principal | | Bloco `[1]` do relatório |
-| 2 | Herança | | Bloco `[2]` do relatório |
-| 3 | Composição | | Bloco `[3]` do relatório |
-| 4 | Encapsulamento | | Bloco `[4]` e o total no topo da lista |
-| 5 | Estrutura de tela | | AppBar e corpo da tela inicial |
-| 6 | Cartão | | Cada item da lista |
-| 7 | Lista | | Lista rolável com seis itens |
-| 8 | Navegação | | Toque no item abre o detalhe |
-| 9 | Formulário | | Tela de cadastro |
-| 10 | Estado | | Item novo na lista e total atualizado |
+| 1 | Entidade principal | `parte1-dart/bin/models/peca.dart:1` | Bloco `[1]` do relatório: os dados da porta de armário |
+| 2 | Herança | `parte1-dart/bin/models/peca_sob_medida.dart:3` | Bloco `[2]` do relatório: as duas fichas lado a lado |
+| 3 | Composição | `parte1-dart/bin/models/projeto.dart:10` | Bloco `[3]` do relatório: o projeto e suas peças |
+| 4 | Encapsulamento | `parte1-dart/bin/models/projeto.dart:12` | Bloco `[4]` do relatório e o total no topo da lista |
+| 5 | Estrutura de tela | `parte2-flutter/lib/screens/home_page.dart:100` | AppBar com o ambiente e o cliente, e o corpo da tela inicial |
+| 6 | Cartão | `parte2-flutter/lib/screens/widgets/cartao_peca.dart:19` | Cada peça da lista, com ícone, medidas e área |
+| 7 | Lista | `parte2-flutter/lib/screens/home_page.dart:139` | Lista rolável com as seis peças do projeto |
+| 8 | Navegação | `parte2-flutter/lib/screens/home_page.dart:76` | Toque no cartão abre a tela de detalhe da peça |
+| 9 | Formulário | `parte2-flutter/lib/screens/cadastro_page.dart:175` | Tela de cadastro, com aviso quando algum campo está errado |
+| 10 | Estado | `parte2-flutter/lib/screens/home_page.dart:92` | A peça nova entra na lista e os totais do topo mudam |
 
 ## Verificação
 
